@@ -21,10 +21,10 @@ This project implements a **CVaR-augmented Markowitz QAOA framework** that:
 
 | Term | Explanation |
 |------|-------------|
-| **Expected Return (\( \mu \))** | Average percentage return of an asset over a historical period |
-| **Covariance (\( \sigma \))** | Measures how two asset returns move together; used to quantify portfolio risk |
+| **Expected Return $(\( \mu \))$** | Average percentage return of an asset over a historical period |
+| **Covariance $(\( \sigma \))$** | Measures how two asset returns move together; used to quantify portfolio risk |
 | **Markowitz Objective** | Optimize portfolio weights to minimize variance for a given return |
-| **CVaR (Conditional Value-at-Risk)** | Average loss in the worst \((1-\alpha)\)% scenarios; captures tail risk beyond VaR |
+| **CVaR (Conditional Value-at-Risk)** |$ Average loss in the worst \((1-\alpha)\)% scenarios$; captures tail risk beyond VaR |
 | **Tail-Risk Event** | Rare, extreme market events (e.g., crashes) that cause disproportionate losses |
 | **Constraint-Preserving Mixer** | Quantum gate sequence ensuring total capital is conserved in QAOA |
 
@@ -34,15 +34,15 @@ This project implements a **CVaR-augmented Markowitz QAOA framework** that:
 
 Classical Markowitz optimization solves:
 
-\[
+$\[
 \min_{\mathbf{x}} \quad \sigma_p^2 = \mathbf{x}^\top \Sigma \mathbf{x} \quad 
 \text{s.t.} \quad \mathbf{\mu}^\top \mathbf{x} \ge R_\text{target}, \quad \sum_i x_i = 1, \quad x_i \ge 0
-\]
+\]$
 
 Where:  
-- \(\mathbf{x}\) = vector of portfolio weights  
-- \(\Sigma\) = covariance matrix of asset returns  
-- \(\mathbf{\mu}\) = expected returns vector  
+- $\(\mathbf{x}\)$ = vector of portfolio weights  
+- $\(\Sigma\)$ = covariance matrix of asset returns  
+- $\(\mathbf{\mu}\)$ = expected returns vector  
 
 **Limitation**: Ignores extreme losses in tail events, leaving portfolios vulnerable.
 
@@ -52,15 +52,15 @@ Where:
 
 Conditional Value-at-Risk at confidence level \(\alpha\) is defined as:
 
-\[
+$\[
 \text{CVaR}_\alpha(L) = \mathbb{E}[L \,|\, L \ge \text{VaR}_\alpha(L)]
-\]
+\]$
 
 Where:  
-- \(L = -R_p\) is the portfolio loss  
-- \(\text{VaR}_\alpha(L)\) is the value-at-risk at level \(\alpha\)  
+- $\(L = -R_p\)$ is the portfolio loss  
+- $\(\text{VaR}_\alpha(L)\)$ is the value-at-risk at level $\(\alpha\)$  
 
-> **Interpretation**: CVaR is the **expected loss in the worst \((1-\alpha)\)% scenarios**, which captures tail-risk that variance cannot.
+> **Interpretation**: CVaR is the **expected loss in the worst $\((1-\alpha)\)% scenarios$**, which captures tail-risk that variance cannot.
 
 ---
 
@@ -68,15 +68,15 @@ Where:
 
 We define the **quantum cost function** as a combination of expected return, variance, and CVaR:
 
-\[
+$\[
 \mathcal{C}(\mathbf{x}) = - \mathbf{\mu}^\top \mathbf{x} + \lambda \, \mathbf{x}^\top \Sigma \mathbf{x} + \eta \, \text{CVaR}_\alpha(\mathbf{x})
-\]
+\]$
 
 Where:  
 
-- \(\lambda\) → risk aversion coefficient  
-- \(\eta\) → tail-risk penalty coefficient  
-- \(\mathbf{x}\) → portfolio allocation encoded in qubits  
+- $\(\lambda\)$ → risk aversion coefficient  
+- $\(\eta\)$ → tail-risk penalty coefficient  
+- $\(\mathbf{x}\)$ → portfolio allocation encoded in qubits  
 
 This cost function is then **mapped to a qubit Hamiltonian** for QAOA.
 
@@ -104,7 +104,7 @@ flowchart TD
 |--------|-------------------|----------------------|------------------|
 | **Expected Return** | 0.012 per day | 0.011–0.013 per day | Comparable performance |
 | **Tail Risk (CVaR 95%)** | 0.045 | 0.032 | Quantum reduces tail exposure |
-| **Portfolio Efficiency (\( \mu / \sigma \))** | 0.27 | 0.34 | Improved Sharpe-like metric |
+| **Portfolio Efficiency $(\( \mu / \sigma \))$** | 0.27 | 0.34 | Improved Sharpe-like metric |
 | **Circuit Depth** | N/A | 42 | Constraint-preserving mixer adds gates |
 | **Gate Count** | N/A | ~980 | Includes RXX + RYY operations |
 | **Runtime (Simulation)** | <1 sec | ~12 sec | Quantum simulation; scales with reps |
