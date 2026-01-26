@@ -52,9 +52,9 @@ Where:
 
 Conditional Value-at-Risk at confidence level \(\alpha\) is defined as:
 
-$\[
-\text{CVaR}_\alpha(L) = \mathbb{E}[L \,|\, L \ge \text{VaR}_\alpha(L)]
-\]$
+$$
+\text{CVaR}_\alpha(L) = \mathbb{E}\big[L \,\big|\, L \ge \text{VaR}_\alpha(L)\big]
+$$
 
 Where:  
 - $\(L = -R_p\)$ is the portfolio loss  
