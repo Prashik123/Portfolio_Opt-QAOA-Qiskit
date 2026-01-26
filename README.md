@@ -34,10 +34,10 @@ This project implements a **CVaR-augmented Markowitz QAOA framework** that:
 
 Classical Markowitz optimization solves:
 
-$\[
+$$\
 \min_{\mathbf{x}} \quad \sigma_p^2 = \mathbf{x}^\top \Sigma \mathbf{x} \quad 
 \text{s.t.} \quad \mathbf{\mu}^\top \mathbf{x} \ge R_\text{target}, \quad \sum_i x_i = 1, \quad x_i \ge 0
-\]$
+\$$
 
 Where:  
 - $\(\mathbf{x}\)$ = vector of portfolio weights  
@@ -68,9 +68,9 @@ Where:
 
 We define the **quantum cost function** as a combination of expected return, variance, and CVaR:
 
-$\[
+$$\
 \mathcal{C}(\mathbf{x}) = - \mathbf{\mu}^\top \mathbf{x} + \lambda \, \mathbf{x}^\top \Sigma \mathbf{x} + \eta \, \text{CVaR}_\alpha(\mathbf{x})
-\]$
+\$$
 
 Where:  
 
