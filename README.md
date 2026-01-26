@@ -21,8 +21,8 @@ This project implements a **CVaR-augmented Markowitz QAOA framework** that:
 
 | Term | Explanation |
 |------|-------------|
-| **Expected Return $(\( \mu \))$** | Average percentage return of an asset over a historical period |
-| **Covariance $(\( \sigma \))$** | Measures how two asset returns move together; used to quantify portfolio risk |
+| **Expected Return $(\ \mu \)$** | Average percentage return of an asset over a historical period |
+| **Covariance $\( \sigma \)$** | Measures how two asset returns move together; used to quantify portfolio risk |
 | **Markowitz Objective** | Optimize portfolio weights to minimize variance for a given return |
 | **CVaR (Conditional Value-at-Risk)** |Average loss in the worst $\((1-\alpha)\)$% scenarios; captures tail risk beyond VaR |
 | **Tail-Risk Event** | Rare, extreme market events (e.g., crashes) that cause disproportionate losses |
