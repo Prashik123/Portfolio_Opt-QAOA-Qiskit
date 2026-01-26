@@ -1,7 +1,6 @@
 # Constraint-Preserving CVaR-Augmented Markowitz QAOA for Portfolio Optimization
 
-**Defence Institute of Advanced Technology (DIAT) – Quantum Computing Project**  
-Author: **Prashik N. Somkuwar**
+**Defence Institute of Advanced Technology (DIAT) – Masters Project**  
 
 ---
 
